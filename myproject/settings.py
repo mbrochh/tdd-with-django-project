@@ -1,7 +1,7 @@
 # Django settings for myproject project.
 import os
 
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -120,10 +120,7 @@ EXTERNAL_APPS = [
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # Uncomment the next line to enable the admin:
-    # 'django.contrib.admin',
-    # Uncomment the next line to enable admin documentation:
-    # 'django.contrib.admindocs',
+     'django.contrib.admin',
 ]
 
 INTERNAL_APPS = [
