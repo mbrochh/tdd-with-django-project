@@ -1,0 +1,8 @@
+django==1.4
+fabric
+factory_boy
+django-nose
+coverage
+django-coverage
+mock
+selenium
