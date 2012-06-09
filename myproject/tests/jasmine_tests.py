@@ -15,4 +15,4 @@ class JasmineSeleniumTests(LiveServerTestCase):
     def test_login(self):
         self.selenium.get('%s%s' % (self.live_server_url, '/jasmine/'))
         result = self.selenium.find_element_by_class_name('description')
-        self.assertTrue('0 failures' in result)
+        self.assertTrue('0 failures' in result.text)
