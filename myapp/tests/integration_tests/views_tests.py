@@ -30,3 +30,17 @@ class EntryDetailViewTestCase(TestCase):
         resp = self.client.get(reverse(self.get_view_name(),
             kwargs=self.get_view_kwargs()))
         self.assertEqual(resp.status_code, 200)
+
+
+class EntryListViewTestCase(TestCase):
+    """Tests for the ``EntryListView`` generic view class."""
+    def setUp(self):
+        self.entry1 = EntryFactory()
+        self.entry2 = EntryFactory()
+
+    def get_view_name(self):
+        return 'entry_list'
+
+    def test_view(self):
+        resp = self.client.get(reverse(self.get_view_name()))
+        self.assertEqual(resp.status_code, 200)

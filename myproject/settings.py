@@ -113,6 +113,10 @@ TEMPLATE_DIRS = (
     os.path.join(os.path.dirname(__file__), 'templates'),
 )
 
+FIXTURE_DIRS = (
+    os.path.join(os.path.dirname(__file__), 'fixtures'),
+)
+
 EXTERNAL_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -120,7 +124,9 @@ EXTERNAL_APPS = [
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-     'django.contrib.admin',
+    'django.contrib.admin',
+    'south',
+    'django_extensions',
 ]
 
 INTERNAL_APPS = [

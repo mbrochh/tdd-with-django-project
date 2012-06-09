@@ -1,0 +1,11 @@
+{% load url from future %}
+<h1>Entry list (Beta)</h1>
+<a href="{% url "home" %}">Back</a>
+<h2>Entries</h2>
+<hr />
+{% for obj in object_list %}
+    <h3>Author: {{ obj.user.username }}</h3>
+    <h3>Message:</h3>
+    <p>{{ obj.message }}</p>
+    <hr />
+{% endfor %}

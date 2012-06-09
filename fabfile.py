@@ -12,6 +12,7 @@ def dumpdata():
     """
     local('python2.7 ./manage.py dumpdata --indent 4 --natural auth --exclude auth.permission > myproject/fixtures/bootstrap_auth.json')  # NOQA
     local('python2.7 ./manage.py dumpdata --indent 4 --natural sites > myproject/fixtures/bootstrap_sites.json')  # NOQA
+    local('python2.7 ./manage.py dumpdata --indent 4 --natural myapp > myapp/fixtures/bootstrap.json')  # NOQA
 
 
 def loaddata():
@@ -29,11 +30,10 @@ def rebuild():
     Deletes the database and recreates the database and bootstrap fixtures.
 
     """
-    local('./manage.py reset_db --router=default --noinput')
+    local('python2.7 manage.py reset_db --router=default --noinput')
     local('python2.7 manage.py syncdb --all --noinput')
     local('python2.7 manage.py migrate --fake')
     loaddata()
-    local('./manage.py collectstatic --noinput')
 
 
 def test(integration=1):
