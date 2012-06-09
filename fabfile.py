@@ -1,4 +1,11 @@
-"""Fabfile for the ``myproject`` project."""
+"""
+Fabfile for the ``myproject`` project.
+
+Fabric is similar to make files. Your team will be able to execute common
+tasks via running ``fab taskname`` from the folder that contains the
+``fabfile.py``.
+
+"""
 from fabric.api import local
 
 
@@ -9,6 +16,8 @@ def dumpdata():
     Remember to add new dumpdata commands for new apps here so that you always
     get a full initial dump when running this task.
 
+    Is used by the ``fab rebuild`` task.
+
     """
     local('python2.7 ./manage.py dumpdata --indent 4 --natural auth --exclude auth.permission > myproject/fixtures/bootstrap_auth.json')  # NOQA
     local('python2.7 ./manage.py dumpdata --indent 4 --natural sites > myproject/fixtures/bootstrap_sites.json')  # NOQA
@@ -18,6 +27,8 @@ def dumpdata():
 def loaddata():
     """
     Loads the bootstrap fixtures so you can start clicking around on the site.
+
+    Is used by the ``fab rebuild`` task.
 
     """
     local('python2.7 manage.py loaddata bootstrap_auth.json')
@@ -37,12 +48,13 @@ def rebuild():
 
 
 def test(integration=1):
+    """
+    Your central command for running tests. Call it like so:
+
+        fab test
+        fab test:integration=0
+    """
     command = './manage.py test -v 2 --settings=myproject.test_settings'
     if int(integration) == 0:
-        command += " --exclude='integration_tests'"
-    local(command)
-
-
-def test_js():
-    command = './myproject/tests/js_tests/EnvJasmine/bin/run_test.sh --configFile=/Users/martin/Projects/pycon-apac-2012/tdd-with-django/myproject/myproject/tests/js_tests/EnvJasmine/etc/conf/demo.conf.js specs/add-numbers.spec.js'
+        command += " --exclude='integration_tests' --exclude='jasmine_tests'"
     local(command)

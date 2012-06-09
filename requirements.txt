@@ -1,3 +1,9 @@
+# You could split up this file into two:
+# * requirements.txt - containing everything that would be needed for the
+#   deployment on the server and
+# * requirements_dev.txt - contains everything that would be needed by the
+#   developers in order to get the tests up and running
+
 django==1.4
 django-extensions
 fabric
