@@ -71,6 +71,7 @@ STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    os.path.join(os.path.dirname(__file__), 'static/'),
 )
 
 # List of finder classes that know how to find static files in
@@ -117,6 +118,9 @@ FIXTURE_DIRS = (
     os.path.join(os.path.dirname(__file__), 'fixtures'),
 )
 
+JASMINE_TEST_DIRECTORY = os.path.join(
+    os.path.dirname(__file__), 'tests/jasmine_tests/')
+
 EXTERNAL_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -127,6 +131,7 @@ EXTERNAL_APPS = [
     'django.contrib.admin',
     'south',
     'django_extensions',
+    'django_jasmine',
 ]
 
 INTERNAL_APPS = [

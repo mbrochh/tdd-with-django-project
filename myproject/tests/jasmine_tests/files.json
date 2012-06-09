@@ -1,0 +1,9 @@
+{
+    "name": "Main Test Suite",
+    "js_files": [
+        "/static/js/jquery.min.js"
+    ],
+    "media_files": [
+    ]
+}
+

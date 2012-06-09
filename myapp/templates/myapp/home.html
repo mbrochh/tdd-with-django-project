@@ -1,3 +1,13 @@
 {% load url from future %}
 <h1>My App (Beta)</h1>
 <a href="{% url "entry_list" %}">Entry list</a>
+<input id="foo" type="submit" value="say hi" />
+<script src="{{ STATIC_URL }}js/jquery.min.js" %}"></script>
+<script src="{{ STATIC_URL }}js/do_stuff.js" %}"></script>
+<script>
+    $(document).ready(function() {
+        $('#foo').click(function(){
+            say_hi();
+        })
+    })
+</script>

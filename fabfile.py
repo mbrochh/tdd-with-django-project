@@ -41,3 +41,8 @@ def test(integration=1):
     if int(integration) == 0:
         command += " --exclude='integration_tests'"
     local(command)
+
+
+def test_js():
+    command = './myproject/tests/js_tests/EnvJasmine/bin/run_test.sh --configFile=/Users/martin/Projects/pycon-apac-2012/tdd-with-django/myproject/myproject/tests/js_tests/EnvJasmine/etc/conf/demo.conf.js specs/add-numbers.spec.js'
+    local(command)

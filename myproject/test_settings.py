@@ -6,6 +6,7 @@ from myproject.settings import *
 
 
 INSTALLED_APPS.append('django_nose')
+INSTALLED_APPS.append('django_jasmine')
 
 DATABASES = {
     "default": {

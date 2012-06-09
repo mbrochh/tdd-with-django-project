@@ -8,5 +8,6 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^jasmine/', include('django_jasmine.urls')),
     url(r'^', include('myapp.urls')),
 )
